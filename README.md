@@ -1,8 +1,29 @@
-# React + Vite
+work in progress
+-----------------------------------------------
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+use create-vite
 
-Currently, two official plugins are available:
+-----------------------------------------------
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+dependencies": leaflet, react-leaflet, react-router, react-spring, tailwindcss
+
+npm install
+
+-----------------------------------------------
+
+npx json-server cars.json for car data
+
+npx json-server carLogo.json for car logo
+
+npm run dev for app start
+
+
+for more info or turorials check official documentation:
+
+https://react-leaflet.js.org/docs/
+
+https://tailwindcss.com/docs/guides/vite
+
+https://www.react-spring.dev/
+
+https://reactrouter.com/en/main
