@@ -1,106 +1,5 @@
-/* eslint-disable react/prop-types */
-import { useState } from "react";
-import ReactDOM from "react-dom";
-
-const GalleryItem = ({ image, onClick }) => {
-  return (
-    <div
-      className="cursor-pointer h-[10rem]  overflow-hidden"
-      onClick={() => onClick(image.id)}>
-      <img
-        src={image.url}
-        alt={image.title}
-        className="w-full h-auto transform transition duration-300 ease-in-out hover:scale-105"
-      />
-      <div className="mt-2">
-        {/* <h4 className="text-lg font-semibold">{image.title}</h4>
-        <p className="text-sm">{image.description}</p> */}
-      </div>
-    </div>
-  );
-};
-
-const Modal = ({ isOpen, images, onClose, currentImageId }) => {
-  if (!isOpen) return null;
-
-  const currentIndex = images.findIndex((image) => image.id === currentImageId);
-  const currentImage = images[currentIndex];
-
-  const navigate = (direction) => {
-    const newIndex = currentIndex + direction;
-    if (newIndex >= 0 && newIndex < images.length) {
-      onClose(images[newIndex].id);
-    }
-  };
-
-  return ReactDOM.createPortal(
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50">
-      <div className="bg-white p-5 rounded-lg shadow-lg flex flex-col items-center">
-        <button
-          onClick={() => onClose(null)}
-          className="mb-4 self-end px-4 py-2 text-sm font-medium text-white bg-red-500 rounded hover:bg-red-700">
-          Close
-        </button>
-        <img
-          src={currentImage.url}
-          alt={currentImage.title}
-          className="w-full max-w-3xl max-h-[80vh] object-contain mb-4"
-        />
-        <div>
-          <button
-            onClick={() => navigate(-1)}
-            disabled={currentIndex === 0}
-            className="mr-2 px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-700 disabled:opacity-50">
-            Prev
-          </button>
-          <button
-            onClick={() => navigate(1)}
-            disabled={currentIndex === images.length - 1}
-            className="px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-700 disabled:opacity-50">
-            Next
-          </button>
-        </div>
-      </div>
-    </div>,
-    document.body
-  );
-};
-
-const Gallery = ({ images }) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [currentImageId, setCurrentImageId] = useState(null);
-
-  const handleImageClick = (id) => {
-    setCurrentImageId(id);
-    setModalOpen(true);
-  };
-
-  const handleCloseModal = (id = null) => {
-    setCurrentImageId(id);
-    setModalOpen(false);
-  };
-
-  return (
-    <section className="gallery-section">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-        {images.map((image) => (
-          <GalleryItem
-            key={image.id}
-            image={image}
-            onClick={handleImageClick}
-          />
-        ))}
-      </div>
-      <Modal
-        isOpen={modalOpen}
-        images={images}
-        onClose={handleCloseModal}
-        currentImageId={currentImageId}
-      />
-    </section>
-  );
-};
-
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 function Tour() {
   const gallery = {
     images: [
@@ -166,16 +65,35 @@ function Tour() {
       },
     ],
   };
-
+  const galleryItems = gallery.images.map((image) => ({
+    original: image.url,
+    thumbnail: image.url,
+    fullscreen: image.url,
+  }));
   return (
-    <>
-      <div className="container ">
-        <h2 className="text-3xl md:text-4xl font-bold text-center my-16">
-          Gallery
-        </h2>
-        <Gallery images={gallery.images} />
+    <section className="flex flex-col items-center justify-center  container ">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl mb-8 sm:mb-12 md:mb-16 font-bold text-center">
+        Virtual Tour
+      </h2>
+      <div
+        className="relative bg-white p-10 rounded-2xl shadow-noOffset mb-10 mx-auto"
+        style={{ maxWidth: "1024px", width: "100%" }}>
+        <div className="absolute inset-0 border-4 border-white rounded-lg"></div>
+        <ImageGallery
+          items={galleryItems}
+          showPlayButton={false}
+          autoPlay={true}
+          lazyLoad={true}
+          showFullscreenButton={true}
+          slideDuration={1000}
+          slideInterval={10000}
+          showThumbnails={true}
+          showBullets={true}
+          showIndex={false}
+          // additionalClass="max-w-full h-auto"
+        />
       </div>
-    </>
+    </section>
   );
 }
 

@@ -93,7 +93,7 @@ function Offers() {
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto max-w-full max-h-full"
                 />
                 {/* Overlay with Learn More link */}
-                <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 hover:opacity-100 flex transition-opacity lg:h-[36rem] sm:h-[29rem] h-[26rem] duration-300">
+                <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 hover:opacity-100 flex transition-opacity lg:h-[36rem] md:h-[31rem] smallest:h-[27rem] sm:h-[30rem] h-[26rem] duration-300">
                   <a
                     href="#learn-more"
                     className="absolute inset-0 flex justify-center items-center transition-opacity text-white text-lg md:text-xl font-semibold">
