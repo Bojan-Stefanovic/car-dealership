@@ -6,6 +6,7 @@ import Error from "./Pages/Error";
 import About from "./Pages/About";
 import { Suspense } from "react";
 import ContactPage from "./Pages/ContactPage";
+import { AppProvider } from "./context/AppContext";
 
 const router = createBrowserRouter([
   {
@@ -39,11 +40,14 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="overflow-x-hidden">
-      <Header />
-      <RouterProvider router={router} />
-      {/* <Footer /> */}
-    </div>
+    <>
+      <AppProvider>
+        <div className="overflow-hidden">
+          <Header />
+          <RouterProvider router={router} />
+        </div>
+      </AppProvider>
+    </>
   );
 }
 
