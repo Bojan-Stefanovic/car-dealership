@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import LandingImg from "./LandingImg";
 
 function Hero() {
@@ -22,11 +23,11 @@ function Hero() {
         </p>
 
         {/* CTA Button */}
-        <a
-          href="#inventory"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-4 sm:px-6 rounded-full inline-block transition duration-300">
+        <Link
+          to="/inventory"
+          className="bg-[#6faa63] rounded hover:bg-[#8bc77f] hover:text-gray-700 text-white font-bold py-2 sm:py-3 px-4 sm:px-6  inline-block transition duration-300">
           Browse Inventory
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -7,3 +7,6 @@
 // MainTint 1 : #516b75
 // MainShade 2 : #65c27e #3f794f
 // MainTint 2 : #516b75
+
+// button/link color : #6faa63
+// button/link hover-color : #8bc77f

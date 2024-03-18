@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -17,13 +18,12 @@ function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Process the form data, for example, send an email or save the message
+
     console.log(formData);
-    // Show success message or clear form...
   };
 
   return (
-    <section className="py-12 bg-white">
+    <section className="pt-20 mt-16 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
           Contact Us
@@ -76,11 +76,18 @@ function ContactPage() {
               rows="4"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></textarea>
           </div>
-          <button
-            type="submit"
-            className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 transition duration-200">
-            Send Message
-          </button>
+          <div className="flex justify-between">
+            <button
+              type="submit"
+              className="px-6 py-2 text-white bg-[#6faa63] rounded hover:bg-[#8bc77f] transition duration-200">
+              Send Message
+            </button>
+            <Link
+              to="/"
+              className="px-6 py-2 text-white bg-[#6faa63] rounded hover:bg-[#8bc77f] transition duration-200">
+              Back to Home
+            </Link>
+          </div>
         </form>
       </div>
     </section>

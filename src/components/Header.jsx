@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import Icons from "../utils/Icons";
 import { useAppContext } from "../context/AppContext";
+import { Link } from "react-router-dom";
 
 function Header() {
   const { isHeaderFixed } = useAppContext();
@@ -20,7 +21,9 @@ function Header() {
         <div className="py-4 mt-[0.80rem] blur-sm drop-shadow-sm top-[15px] rounded-2xl px-32 bg-gradient-to-r from absolute z-1"></div>
         <div className="relative flex w-64 items-center">
           <h1 className="text-2xl bg-gradient-to-l from-30%  from-[#C10000] to-[#856b26] inline-block text-transparent bg-clip-text italic ml-8 font-extrabold absolute tracking-widest z-10 items-center left-[1px] bottom-[-25px]">
-            The Wheel Deal
+            <Link to="/" className="cursor-pointer">
+              The Wheel Deal
+            </Link>
           </h1>
           <Icons
             fillColor="#C10000"
@@ -31,19 +34,26 @@ function Header() {
         </div>
 
         <nav>
-          <a href="/" className="text-white p-3 hover:bg-green-700 rounded">
+          <Link
+            to="/"
+            className="text-white p-3 hover:bg-[#4e9662] rounded transition ease-in-out duration-200 transform">
             Home
-          </a>
-          <a
-            href="/about"
-            className="text-white p-3 hover:bg-green-700 rounded">
+          </Link>
+          <Link
+            to="/about"
+            className="text-white p-3 hover:bg-[#4e9662] rounded transition ease-in-out duration-200 transform">
             About
-          </a>
-          <a
-            href="/contact"
-            className="text-white p-3 hover:bg-green-700 rounded">
+          </Link>
+          <Link
+            to="/contact"
+            className="text-white p-3 hover:bg-[#4e9662] rounded transition ease-in-out duration-200 transform">
             Contact
-          </a>
+          </Link>
+          <Link
+            to="/signin"
+            className="text-white p-3 bg-[#6faa63] hover:bg-[#2fb914]/70 rounded transition ease-in-out duration-200 transform ">
+            Sign in
+          </Link>
         </nav>
       </div>
     </header>

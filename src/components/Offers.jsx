@@ -1,58 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
 
 function Offers() {
   const [dynamicStyle, setDynamicStyle] = useState({});
-  const specialOffers = [
-    {
-      id: 1,
-      title: "Year End Clearance Sale",
-      description:
-        "Don't miss out on our biggest sale of the year! Enjoy discounts up to 60% off MSRP on selected models. Limited time only.",
-      image:
-        "https://img.freepik.com/premium-vector/year-end-clearence-sale-offer-banner-white-background_774115-42.jpg",
-    },
-    {
-      id: 2,
-      title: "0% APR Financing",
-      description:
-        "Qualified buyers can enjoy 0% APR financing for up to 60 months on select vehicles. Drive your dream car home today!",
-      image:
-        "https://t4.ftcdn.net/jpg/01/00/12/75/360_F_100127563_8v6vUyyLDHggQn88ZNFqo2JhOCMVFGtD.jpg",
-    },
-    {
-      id: 3,
-      title: "Lease Specials",
-      description:
-        "Lease your next vehicle at an unbeatable rate. Exclusive deals starting as low as $199/month for 36 months with $2,999 due at signing.",
-      image:
-        "https://media.istockphoto.com/id/1140138706/vector/lease-vector-home-rent-blank-document-lease-contract-loan-property-illustration.jpg?s=612x612&w=0&k=20&c=fk94EoZ9Uh0o66eFH9a5FeGUEwwth9V7ONIgWW0WWJ4=",
-    },
-    {
-      id: 4,
-      title: "Trade-In Extra Value",
-      description:
-        "Receive an additional $1,000 towards your trade-in vehicle. Make your switch to a new car smoother and more affordable.",
-      image:
-        "https://www.pngall.com/wp-content/uploads/2016/04/50-off-PNG-HD.png",
-    },
-    {
-      id: 5,
-      title: "Loyalty Reward Discount",
-      description:
-        "Our way of saying 'Thank You' - exclusive discounts for returning customers. Save up to 10% on your next vehicle purchase.",
-      image:
-        "https://static.vecteezy.com/system/resources/previews/029/922/954/original/loyalty-program-in-flat-style-discount-coupon-3d-coupon-reward-discount-loyalty-program-promotion-vector.jpg",
-    },
-    {
-      id: 6,
-      title: "Online Exclusive Offer",
-      description:
-        "Shop online and unlock exclusive deals not available in-store. Save an additional 5% on your purchase with code ONLINE5.",
-      image:
-        "https://static.vecteezy.com/system/resources/previews/002/240/287/non_2x/online-exclusive-sale-tag-poster-design-template-discount-isolated-sticker-vector.jpg",
-    },
-  ];
+  const { specialOffers } = useAppContext();
   useEffect(() => {
     const applyDynamicStyle = () => {
       if (window.innerWidth > 768) {
@@ -94,11 +47,11 @@ function Offers() {
                 />
                 {/* Overlay with Learn More link */}
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 hover:opacity-100 flex transition-opacity lg:h-[36rem] md:h-[31rem] smallest:h-[27rem] sm:h-[30rem] h-[26rem] duration-300">
-                  <a
-                    href="#learn-more"
+                  <Link
+                    to="/learn-more"
                     className="absolute inset-0 flex justify-center items-center transition-opacity text-white text-lg md:text-xl font-semibold">
                     Learn More
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="p-4">

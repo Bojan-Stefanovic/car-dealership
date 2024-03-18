@@ -10,11 +10,12 @@ import Services from "../components/Services";
 import Testimonials from "../components/Testimonials";
 import Tour from "../components/Tour";
 import WhyUs from "../components/WhyUs";
-import Contact from "./Contact";
+import Contact from "../components/Contact";
 import { useAppContext } from "../context/AppContext";
 
 function Home() {
   const { setIsHeaderFixed } = useAppContext();
+
   const heroRef = useRef(null);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,6 +35,7 @@ function Home() {
       }
     };
   }, [setIsHeaderFixed]);
+
   return (
     <div className="flex flex-col min-h-screen justify-center items-center mx-auto max-w-full">
       <div ref={heroRef} className="mx-auto w-full">

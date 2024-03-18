@@ -1,36 +1,7 @@
+import { useAppContext } from "../context/AppContext";
 import Icons from "../utils/Icons";
 function WhyUs() {
-  const reasons = [
-    {
-      id: 1,
-      title: "Trusted by Thousands",
-      description:
-        "Over 10,000 happy customers and counting. Our commitment to quality service has made us a leading choice for car buyers.",
-      icon: "Trust",
-    },
-    {
-      id: 2,
-      title: "Award-Winning Service",
-      description:
-        "Recognized for excellence in customer service, we've received multiple awards from industry associations.",
-      icon: "Trophy",
-    },
-    {
-      id: 3,
-      title: "Unbeatable Deals",
-      description:
-        "Exclusive offers and discounts you won't find anywhere else. We work hard to give you the best deals.",
-      icon: "Deal",
-    },
-    {
-      id: 4,
-      title: "Comprehensive Support",
-      description:
-        "From financing to after-sales support, our team is here to assist you every step of the way.",
-      icon: "Support",
-    },
-  ];
-
+  const { reasons } = useAppContext();
   return (
     <section className="py-12 px-10 bg-white">
       <div className="container mx-auto px-4">
@@ -60,7 +31,7 @@ function WhyUs() {
         <div className="text-center mt-12">
           <a
             href="/about"
-            className="px-6 py-3 bg-blue-500 text-white font-bold rounded-full hover:bg-blue-600 transition duration-150">
+            className="px-6 py-3 bg-[#6faa63] rounded hover:bg-[#66b357]/70 text-white font-bold transition duration-200">
             Learn Why We Are the Best
           </a>
         </div>

@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useGetCarData } from "../hooks/useGetCarData";
 import Car from "./Car";
 import Carousel from "./Carousel";
+import { Link } from "react-router-dom";
 
 function FeaturedCars() {
   const featuredCars = useGetCarData();
@@ -23,6 +24,13 @@ function FeaturedCars() {
             )}
           </div>
         </Carousel>
+      </div>
+      <div className="flex justify-center">
+        <Link
+          to="/inventory"
+          className="bg-[#6faa63] rounded hover:bg-[#8bc77f] hover:text-gray-700 text-white font-bold py-2 sm:py-3 px-4 sm:px-6  inline-block transition duration-300">
+          Browse Our Inventory
+        </Link>
       </div>
     </section>
   );
