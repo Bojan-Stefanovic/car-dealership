@@ -49,7 +49,9 @@ function CareersPage() {
                 our team. Excellent communication skills and a passion for cars
                 required.
               </p>
-              <Link to="/contact" className="text-blue-500 hover:underline">
+              <Link
+                to="/contact"
+                className="text-[#6faa63] hove:text-[#8bc77f] hover:underline">
                 Apply Now
               </Link>
             </div>
@@ -59,7 +61,9 @@ function CareersPage() {
                 Looking for a skilled technician to perform maintenance and
                 repairs. ASE certification preferred.
               </p>
-              <Link to="/contact" className="text-blue-500 hover:underline">
+              <Link
+                to="/contact"
+                className="text-[#6faa63] hove:text-[#8bc77f] hover:underline">
                 Apply Now
               </Link>
             </div>
@@ -71,7 +75,9 @@ function CareersPage() {
                 Join our marketing team to drive our digital presence.
                 Experience with SEO, PPC, and social media marketing required.
               </p>
-              <Link to="/contact" className="text-blue-500 hover:underline">
+              <Link
+                to="/contact"
+                className="text-[#6faa63] hove:text-[#8bc77f] hover:underline">
                 Apply Now
               </Link>
             </div>
@@ -83,7 +89,9 @@ function CareersPage() {
                 Seeking a customer-focused individual to provide exceptional
                 service. Strong communication and problem-solving skills needed.
               </p>
-              <Link to="/contact" className="text-blue-500 hover:underline">
+              <Link
+                to="/contact"
+                className="text-[#6faa63] hove:text-[#8bc77f] hover:underline">
                 Apply Now
               </Link>
             </div>
@@ -92,7 +100,7 @@ function CareersPage() {
         <div className="mt-20">
           <Link
             to="/"
-            className="mt-4 px-6  py-2 text-white bg-blue-500 rounded hover:bg-blue-600 transition duration-200">
+            className="mt-4 px-6  py-2 text-white bg-[#6faa63] rounded hover:bg-[#8bc77f] transition duration-200">
             Back to Home
           </Link>
         </div>

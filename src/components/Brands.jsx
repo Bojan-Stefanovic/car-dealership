@@ -1,7 +1,7 @@
-import { useGetBrand } from "../hooks/useGetBrands";
+import { useGetCarLogo } from "../hooks/useGetCarLogo";
 
 function Brands() {
-  const uniqueLogos = useGetBrand();
+  const logos = useGetCarLogo();
   return (
     <section className="py-8 container w-full bg-white">
       <div className="container mx-auto px-4">
@@ -9,11 +9,11 @@ function Brands() {
           Featured Brands
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-14 lg:grid-col-28 gap-x-1 gap-y-6">
-          {uniqueLogos.map((logo) => (
-            <div key={logo.name} className="flex justify-center">
+          {logos.map((logo) => (
+            <div key={logo} className="flex justify-center">
               <img
-                src={`${logo.image}`}
-                alt={logo.name}
+                src={logo}
+                alt={logo}
                 className="h-4 md:h-6 lg:h-8 xl:h-12 w-auto object-fill"
               />
             </div>

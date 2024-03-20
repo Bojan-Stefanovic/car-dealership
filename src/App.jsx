@@ -11,7 +11,8 @@ import LearnMore from "./Pages/LearnMore";
 import CareersPage from "./Pages/CareersPage";
 import RegisterPage from "./Pages/RegisterPage";
 import SignInPage from "./Pages/SignInPage";
-import Inventory from "./Pages/Inventory";
+import InventoryPage from "./Pages/InventoryPage";
+import AccountPage from "./Pages/AccountPage";
 
 const router = createBrowserRouter([
   {
@@ -89,7 +90,17 @@ const router = createBrowserRouter([
     element: (
       <Suspense fallback={<LoadingSpinner />}>
         <Header />
-        <Inventory />
+        <InventoryPage />
+      </Suspense>
+    ),
+    errorElement: <Error />,
+  },
+  {
+    path: "/account",
+    element: (
+      <Suspense fallback={<LoadingSpinner />}>
+        <Header />
+        <AccountPage />
       </Suspense>
     ),
     errorElement: <Error />,

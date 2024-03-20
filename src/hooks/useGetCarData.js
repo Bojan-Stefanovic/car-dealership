@@ -1,49 +1,26 @@
-// getCarData.js
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export function useGetCarData() {
   const [carData, setCarData] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      // code for uploaded api
-      {
-        /* useEffect(() => {
-        const getData = async () => {
-          const urlBase = 'https://myapi.herokuapp.com/'; // Replace with your actual API URL
-          let cars = [];
-          for (let i = 0; i <= 79; i++) {
-            const url = `${urlBase}${i}`;
-            try {
-              const response = await fetch(url);
-              const result = await response.json();
-              cars.push(result);
-            } catch (error) {
-              console.error(error);
-            }
-          }
-          setCarData(cars);
-        };
-        getData();
-      }, []); */
+      const urls = Array.from(
+        { length: 80 },
+        (_, i) => `http://localhost:3000/${i}`
+      );
+      try {
+        const promises = urls.map((url) =>
+          fetch(url).then((res) => res.json())
+        );
+        const cars = await Promise.all(promises);
+        setCarData(cars);
+      } catch (error) {
+        console.error(error);
       }
-
-      let cars = [];
-      for (let i = 0; i <= 79; i++) {
-        const url = `http://localhost:3000/${i}`;
-        // const url = `http://localhost:3000/0`;
-        try {
-          const response = await fetch(url);
-          const result = await response.json();
-          cars.push(result);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-      setCarData(cars);
     };
     getData();
   }, []);
 
-  return useMemo(() => carData, [carData]);
+  return carData;
 }
