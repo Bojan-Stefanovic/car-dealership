@@ -1,40 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useState, useEffect } from "react";
+import { useAppContext } from "../context/AppContext";
 
 function FAQS() {
-  const faqs = [
-    {
-      id: 1,
-      question: "Do you offer financing options?",
-      answer:
-        "Yes, we offer competitive financing options tailored to your financial situation. Our finance team will work with you to find the best rates and terms.",
-    },
-    {
-      id: 2,
-      question: "Do you provide maintenance services?",
-      answer:
-        "Yes, we offer a range of maintenance services to keep your car running smoothly. From oil changes to major repairs, our skilled technicians have you covered.",
-    },
-    {
-      id: 3,
-      question: "Can I test drive cars before purchasing?",
-      answer:
-        "Absolutely! We encourage customers to schedule test drives for any vehicle they're interested in to ensure they're comfortable with their potential new car.",
-    },
-    {
-      id: 4,
-      question: "Can I buy a car online?",
-      answer:
-        "Yes, with The Wheel Deal, you can browse our inventory, finance, and purchase your next car all online. We can even arrange for delivery to your home.",
-    },
-    {
-      id: 5,
-      question: "What safety measures are in place for in-person visits?",
-      answer:
-        "Your safety is our top priority. We adhere to all public health guidelines, including sanitization, social distancing, and mask-wearing to ensure a safe environment for all our customers and staff.",
-    },
-  ];
-
+  const { faqs } = useAppContext();
   const [curOpen, setCurOpen] = useState(null);
   const [nextOpen, setNextOpen] = useState(null);
 

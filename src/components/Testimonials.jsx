@@ -2,60 +2,11 @@
 import { useEffect, useState } from "react";
 import { useTransition, animated } from "react-spring";
 import Icons from "../utils/Icons";
+import { useAppContext } from "../context/AppContext";
 
 function Testimonials() {
   const [index, setIndex] = useState(0);
-  const testimonials = [
-    {
-      id: 1,
-      name: "John Doe",
-      location: "New York, NY",
-      comment:
-        "I had an amazing experience at The Wheel Deal. The staff was incredibly friendly, and I found the perfect car at a great price! It was a seamless process from start to finish, making it by far the best car buying experience I've ever had.",
-      image: "../../public/FakePeople/John doe.jpg",
-    },
-    {
-      id: 2,
-      name: "Maria Martinez",
-      location: "Toronto, Canada",
-      comment:
-        "The Wheel Deal exceeded my expectations! The selection of cars was impressive, and the staff made sure I drove off with a smile. Best car shopping experience! Everyone was so helpful and transparent through the entire process.",
-      image: "../../public/FakePeople/maria martinez.jpg",
-    },
-    {
-      id: 3,
-      name: "Aarav Patel",
-      location: "Mumbai, India",
-      comment:
-        "Incredible service at The Wheel Deal! The staff was knowledgeable and helped me choose the perfect vehicle for my family. Very satisfied with my purchase. They took the time to understand my needs and offered testimonialsalized advice.",
-      image: "../../public/FakePeople/AaravPatel.jpg",
-    },
-    {
-      id: 4,
-      name: "Lia Wei",
-      location: "Beijing, China",
-      comment:
-        "I was amazed by the professionalism at The Wheel Deal. They have a great selection of cars and offer honest advice. Highly recommend to anyone looking for a new car. Their attention to detail and customer care is unmatched.",
-      image: "../../public/FakePeople/lia wei.jpg",
-    },
-    {
-      id: 5,
-      name: "Emma Dubois",
-      location: "Paris, France",
-      comment:
-        "Fantastic experience at The Wheel Deal! The staff was extremely welcoming and patient, helping me find exactly what I was looking for. A truly exceptional service! I felt valued and respected throughout my visit.",
-      image: "../../public/FakePeople/Ema Dubios.jpg",
-    },
-    {
-      id: 6,
-      name: "Mohamed Al-Fayed",
-      location: "Hurgada, Egypt",
-      comment:
-        "The Wheel Deal is the go-to place for cars! Their expertise and selection are unparalleled. I found a luxury car at an unbeatable price. Thank you for the wonderful service! Their dedication to excellence is evident in every interaction.",
-      image: "../../public/FakePeople/Al-Fayed.jpg",
-    },
-  ];
-
+  const { testimonials } = useAppContext();
   const transitions = useTransition(index, {
     from: { opacity: 0, transform: "translateX(100%)" },
     enter: { opacity: 1, transform: "translateX(0%)" },

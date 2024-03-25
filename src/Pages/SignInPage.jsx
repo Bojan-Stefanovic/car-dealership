@@ -24,7 +24,7 @@ function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen my-20 flex items-center justify-center bg-white">
       <div className="max-w-md w-full bg-white rounded-lg shadow-noOffset shadow-gray-600/30 p-8">
         <h2 className="text-2xl font-bold text-center mb-8">Sign In</h2>
         <form>

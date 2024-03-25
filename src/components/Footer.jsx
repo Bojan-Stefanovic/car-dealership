@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="bg-gradient-to-l w-full from-[#7ef29d] to-[#264653] text-white mb-0 px-5 py-10">
+    <footer className="bg-gradient-to-l w-full  from-[#64b479] to-[#264653] text-white px-5 z-50 py-10">
       <div className="container mx-auto flex flex-wrap justify-around text-center md:text-left">
         <div className="w-full md:w-auto mb-8 md:mb-0">
           <h3 className="font-semibold text-lg uppercase mb-5">Contact Us</h3>

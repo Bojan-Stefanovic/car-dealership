@@ -13,5 +13,6 @@ html {
   to {
     transform: translateY(0);
     opacity: 1;
+    filter: blur(5px);
   }
 }

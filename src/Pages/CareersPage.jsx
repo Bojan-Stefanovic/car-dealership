@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function CareersPage() {
   return (
-    <main className="my-8">
+    <main className="my-28">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Join Our Team

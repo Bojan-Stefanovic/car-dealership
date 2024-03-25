@@ -38,14 +38,13 @@ function Offers() {
               style={dynamicStyle}
               key={offer.id}
               className="flex flex-col bg-white rounded-lg shadow-noOffset shadow-gray-600/40 overflow-hidden xl:h-[36rem] h-auto">
-              {/* Responsive aspect ratio for images */}
               <div className="relative w-full xl:mb-12 h-64 sm:h-72 md:h-80">
                 <img
                   src={offer.image}
                   alt={offer.title}
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-auto h-auto max-w-full max-h-full"
                 />
-                {/* Overlay with Learn More link */}
+
                 <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 hover:opacity-100 flex transition-opacity lg:h-[36rem] md:h-[31rem] smallest:h-[27rem] sm:h-[30rem] h-[26rem] duration-300">
                   <Link
                     to="/learn-more"

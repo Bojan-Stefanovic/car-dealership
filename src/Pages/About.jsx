@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/no-unescaped-entities */
 function About() {
   return (
-    <section className="about-section mt-16 py-12 bg-white">
+    <section className="about-section py-12 mt-28 bg-white">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
           Welcome to The Wheel Deal - Excellence in Automotive
@@ -93,7 +93,7 @@ function About() {
             together, driving into a future where every mile is a milestone.
           </p>
         </div>
-        <div className="text-center mt-8">
+        <div className="text-center mt-16">
           <Link
             to="/inventory"
             className="inline-block bg-[#6faa63] rounded hover:bg-[#8bc77f] text-white font-bold py-2 px-4  transition duration-150">

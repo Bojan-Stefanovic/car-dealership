@@ -1,13 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useMemo, useState } from "react";
 
 const AppContext = createContext();
-
-export function useAppContext() {
-  return useContext(AppContext);
-}
 const locations = [
   {
     name: "New York Office",
@@ -114,7 +110,6 @@ const services = [
     icon: "Assistance",
   },
 ];
-
 const specialOffers = [
   {
     id: 1,
@@ -231,17 +226,198 @@ const specialOffers = [
       "https://static.vecteezy.com/system/resources/previews/002/240/287/non_2x/online-exclusive-sale-tag-poster-design-template-discount-isolated-sticker-vector.jpg",
   },
 ];
-export const AppProvider = ({ children }) => {
-  const [isHeaderFixed, setIsHeaderFixed] = useState(false);
+const faqs = [
+  {
+    id: 1,
+    question: "Do you offer financing options?",
+    answer:
+      "Yes, we offer competitive financing options tailored to your financial situation. Our finance team will work with you to find the best rates and terms.",
+  },
+  {
+    id: 2,
+    question: "Do you provide maintenance services?",
+    answer:
+      "Yes, we offer a range of maintenance services to keep your car running smoothly. From oil changes to major repairs, our skilled technicians have you covered.",
+  },
+  {
+    id: 3,
+    question: "Can I test drive cars before purchasing?",
+    answer:
+      "Absolutely! We encourage customers to schedule test drives for any vehicle they're interested in to ensure they're comfortable with their potential new car.",
+  },
+  {
+    id: 4,
+    question: "Can I buy a car online?",
+    answer:
+      "Yes, with The Wheel Deal, you can browse our inventory, finance, and purchase your next car all online. We can even arrange for delivery to your home.",
+  },
+  {
+    id: 5,
+    question: "What safety measures are in place for in-person visits?",
+    answer:
+      "Your safety is our top priority. We adhere to all public health guidelines, including sanitization, social distancing, and mask-wearing to ensure a safe environment for all our customers and staff.",
+  },
+];
+const testimonials = [
+  {
+    id: 1,
+    name: "John Doe",
+    location: "New York, NY",
+    comment:
+      "I had an amazing experience at The Wheel Deal. The staff was incredibly friendly, and I found the perfect car at a great price! It was a seamless process from start to finish, making it by far the best car buying experience I've ever had.",
+    image: "../../public/FakePeople/John doe.jpg",
+  },
+  {
+    id: 2,
+    name: "Maria Martinez",
+    location: "Toronto, Canada",
+    comment:
+      "The Wheel Deal exceeded my expectations! The selection of cars was impressive, and the staff made sure I drove off with a smile. Best car shopping experience! Everyone was so helpful and transparent through the entire process.",
+    image: "../../public/FakePeople/maria martinez.jpg",
+  },
+  {
+    id: 3,
+    name: "Aarav Patel",
+    location: "Mumbai, India",
+    comment:
+      "Incredible service at The Wheel Deal! The staff was knowledgeable and helped me choose the perfect vehicle for my family. Very satisfied with my purchase. They took the time to understand my needs and offered testimonialsalized advice.",
+    image: "../../public/FakePeople/AaravPatel.jpg",
+  },
+  {
+    id: 4,
+    name: "Lia Wei",
+    location: "Beijing, China",
+    comment:
+      "I was amazed by the professionalism at The Wheel Deal. They have a great selection of cars and offer honest advice. Highly recommend to anyone looking for a new car. Their attention to detail and customer care is unmatched.",
+    image: "../../public/FakePeople/lia wei.jpg",
+  },
+  {
+    id: 5,
+    name: "Emma Dubois",
+    location: "Paris, France",
+    comment:
+      "Fantastic experience at The Wheel Deal! The staff was extremely welcoming and patient, helping me find exactly what I was looking for. A truly exceptional service! I felt valued and respected throughout my visit.",
+    image: "../../public/FakePeople/Ema Dubios.jpg",
+  },
+  {
+    id: 6,
+    name: "Mohamed Al-Fayed",
+    location: "Hurgada, Egypt",
+    comment:
+      "The Wheel Deal is the go-to place for cars! Their expertise and selection are unparalleled. I found a luxury car at an unbeatable price. Thank you for the wonderful service! Their dedication to excellence is evident in every interaction.",
+    image: "../../public/FakePeople/Al-Fayed.jpg",
+  },
+];
+const gallery = {
+  images: [
+    {
+      id: 1,
+      url: "../../public/Gallery/image1.gif",
+      title: "Image One Title",
+      description: "Description of Image One.",
+    },
+    {
+      id: 2,
+      url: "../../public/Gallery/image2.gif",
+      title: "Image Two Title",
+      description: "Description of Image Two.",
+    },
+    {
+      id: 3,
+      url: "../../public/Gallery/image3.gif",
+      title: "Image Three Title",
+      description: "Description of Image Three.",
+    },
+    {
+      id: 4,
+      url: "../../public/Gallery/image4.gif",
+      title: "Image Four Title",
+      description: "Description of Image Four.",
+    },
+    {
+      id: 5,
+      url: "../../public/Gallery/image5.gif",
+      title: "Image Five Title",
+      description: "Description of Image Five.",
+    },
+    {
+      id: 6,
+      url: "../../public/Gallery/image6.gif",
+      title: "Image Six Title",
+      description: "Description of Image Six.",
+    },
+    {
+      id: 7,
+      url: "../../public/Gallery/image7.gif",
+      title: "Image Seven Title",
+      description: "Description of Image Seven.",
+    },
+    {
+      id: 8,
+      url: "../../public/Gallery/image8.gif",
+      title: "Image Eight Title",
+      description: "Description of Image Eight.",
+    },
+    {
+      id: 9,
+      url: "../../public/Gallery/image9.gif",
+      title: "Image Nine Title",
+      description: "Description of Image Nine.",
+    },
+    {
+      id: 10,
+      url: "../../public/Gallery/image10.gif",
+      title: "Image Ten Title",
+      description: "Description of Image Ten.",
+    },
+  ],
+};
+const fixedHeaderStyle = {
+  position: "fixed",
+  top: 0,
+  width: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  zIndex: 50,
+  backdropFilter: "blur(10px)",
+  animation: "slideDown 300ms ease-in-out",
+};
+const unfixedHeaderStyle = {
+  position: "fixed",
+  top: 0,
+  width: "100%",
+  backgroundColor: "transparent",
+  zIndex: 9999,
+};
 
-  const value = {
-    isHeaderFixed,
-    setIsHeaderFixed,
-    specialOffers,
-    services,
-    reasons,
-    locations,
-  };
+export function useAppContext() {
+  return useContext(AppContext);
+}
+
+export const AppProvider = ({ children }) => {
+  const [isHeaderFixed, setIsHeaderFixed] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  const [isHomePage, setIsHomePage] = useState();
+
+  const value = useMemo(
+    () => ({
+      isHeaderFixed,
+      setIsHeaderFixed,
+      specialOffers,
+      services,
+      reasons,
+      locations,
+      faqs,
+      fixedHeaderStyle,
+      unfixedHeaderStyle,
+      testimonials,
+      gallery,
+      isMobile,
+      setIsMobile,
+      isHomePage,
+      setIsHomePage,
+    }),
+    [isHeaderFixed, isMobile, isHomePage]
+  );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

@@ -1,28 +1,42 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({
+  navStyle,
+  linkStyle,
+  linkName,
+  showHome = true,
+  showAbout = true,
+  showContact = true,
+  showSignin = true,
+}) {
+  const commonStyles =
+    "text-white p-3 hover:bg-[#4e9662] rounded transition ease-in-out duration-200 transform";
+
   return (
-    <nav className=" space-x-2">
-      <Link
-        to="/"
-        className="text-white p-3 hover:bg-[#4e9662] rounded transition ease-in-out duration-200 transform">
-        Home
-      </Link>
-      <Link
-        to="/about"
-        className="text-white p-3 hover:bg-[#4e9662] rounded transition ease-in-out duration-200 transform">
-        About
-      </Link>
-      <Link
-        to="/contact"
-        className="text-white p-3 hover:bg-[#4e9662] rounded transition ease-in-out duration-200 transform">
-        Contact
-      </Link>
-      <Link
-        to="/signin"
-        className="text-white p-3 bg-[#6faa63] hover:bg-[#2fb914]/70 rounded transition ease-in-out duration-200 transform ">
-        Sign in
-      </Link>
+    <nav className={`${navStyle} space-x-2`}>
+      {showHome && (
+        <Link to="/" className={`${commonStyles} ${linkStyle}`}>
+          {linkName || "Home"}
+        </Link>
+      )}
+      {showAbout && (
+        <Link to="/about" className={`${commonStyles} ${linkStyle}`}>
+          {linkName || "About"}
+        </Link>
+      )}
+      {showContact && (
+        <Link to="/contact" className={`${commonStyles} ${linkStyle}`}>
+          {linkName || "Contact"}
+        </Link>
+      )}
+      {showSignin && (
+        <Link
+          to="/signin"
+          className={`${commonStyles} bg-[#4e9662] hover:bg-[#6faa63]/70`}>
+          {linkName || "Sign In"}
+        </Link>
+      )}
     </nav>
   );
 }

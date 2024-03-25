@@ -4,7 +4,7 @@ import { useAppContext } from "../context/AppContext";
 function LearnMore() {
   const { specialOffers } = useAppContext();
   return (
-    <section className="mt-16 py-12 bg-white">
+    <section className=" py-12 mt-24 bg-white">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-8">
           Explore Our Detailed Special Offers & Promotions
@@ -32,7 +32,7 @@ function LearnMore() {
             </div>
           ))}
         </div>
-        <div className="text-center flex justify-around mt-8">
+        <div className="text-center flex justify-around mt-16">
           <Link
             to="/"
             className="mt-4 px-6  py-2 text-white bg-[#6faa63] rounded   hover:bg-[#8bc77f] transition duration-200">
